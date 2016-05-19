@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mooc</title>
+  <title>Mooc Project - Tutorials for Everyone</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="" name="description">
+  <meta content="" name="author">
+  <link href="../../favicon.ico" rel="icon">
 </head>
 <body>
-
-<%= yield %>
-
+<%= render "layouts/header" %>
+<div class="container">
+  <div class="starter-template">
+    <%= render "layouts/alerts" %>
+    <%= yield %>
+  </div>
+</div>
+<%= render "layouts/footer" %>
 </body>
 </html>
