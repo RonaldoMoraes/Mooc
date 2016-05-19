@@ -18,14 +18,16 @@
                         </a>
 
                         <li class="">
-                            <a href="#">Home</a>
-                        </li>
-                        
-                        <li class="">
-                            <a href="<%= categories_path if user_signed_in? %>">Categories</a>
+                            <a href="<%= root_url %>">Home</a>
                         </li>
                         <li class="">
-                            <a href="<%= interests_path+'/edit' if user_signed_in? %>">My Interests</a>
+                            <%= link_to 'Edit Profile', edit_user_registration_path %>
+                        </li>
+                        <li class="">
+                            <a href="<%#= categories_path if user_signed_in? %>">Categories</a>
+                        </li>
+                        <li class="">
+                            <a href="<%#= interests_path+'/edit' if user_signed_in? %>">My Interests</a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
