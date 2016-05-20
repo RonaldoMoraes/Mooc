@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+
   resources :categories
-  devise_for :users
+  
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_scope :user do
+    get 'users/edit_interest' => "users/registrations#edit_interest", as: 'edit_interest'
+    put 'users/update_interest' => "users/registrations#update_interest", as: 'update_interest'
+  end
+  #resources :users 
+
   get 'home/index'
   get 'home/about'
   root to: "home#index"

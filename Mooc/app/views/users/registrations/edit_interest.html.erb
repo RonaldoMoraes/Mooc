@@ -1,0 +1,22 @@
+<h2>Edit <%= current_user.class.to_s.downcase.to_sym.to_s.humanize %></h2>
+<% res_name = current_user.class.to_s.downcase.to_sym %>
+<%= form_for(current_user, as: res_name, url: update_interest_path, html: { method: :put }) do |f| %>
+  <%#= devise_error_messages! %>
+
+	<div style="margin-top: 50px;"></div>
+		  <div class="field">
+		    <%= f.label "Area of Interest" %><br />
+		    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
+		      <div class="collection-check-box">
+		        <%= b.check_box %>
+		        <%= b.label %>
+		      </div>
+		    <% end %>
+		  </div>
+	<hr>
+	  <div class="actions">
+	    <%= f.submit "Update", class: "btn btn-lg btn-success" %>
+	  </div>
+<% end %>
+<hr>
+<%= link_to "Back", :back, class: "btn btn-info" %>
