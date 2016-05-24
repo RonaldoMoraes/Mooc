@@ -6,17 +6,25 @@
 	<div style="margin-top: 50px;"></div>
 		  <div class="field">
 		    <%= f.label "Area of Interest" %><br />
-		    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
-		      <div class="collection-check-box">
-		        <%= b.check_box %>
-		        <%= b.label %>
-		      </div>
-		    <% end %>
+		    <div class="col-md-12 col-sm-12">
+			    <% x = 0 %>
+			    <% (Category.all.count/4 +1).times do %>
+			    	<div class="col-lg-3 col-md-4 col-sm-6">
+					    <%= f.collection_check_boxes :category_ids, Category.all[x..x+3], :id, :name do |b| %>
+					      <div class="collection-check-box">
+					        <%= b.check_box %>
+					        <%= b.label %>
+					      </div>
+					    <% end %>
+					    <hr>
+					    <% x = x+4 %>
+				    </div>
+				<% end %>
+			</div>
+			<div style="clear:both;"></div>
 		  </div>
-	<hr>
-	  <div class="actions">
+
+	  <div class="actions col-sm-12">
 	    <%= f.submit "Update", class: "btn btn-lg btn-success" %>
 	  </div>
 <% end %>
-<hr>
-<%= link_to "Back", :back, class: "btn btn-info" %>

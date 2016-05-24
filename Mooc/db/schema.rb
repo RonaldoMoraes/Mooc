@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160520004533) do
+ActiveRecord::Schema.define(version: 20160520192654) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name",        limit: 255
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20160520004533) do
 
   add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id", using: :btree
   add_index "categorizations", ["user_id"], name: "index_categorizations_on_user_id", using: :btree
+
+  create_table "tutorials", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.integer  "user_id",     limit: 4
+    t.integer  "category_id", limit: 4
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "tutorials", ["category_id"], name: "index_tutorials_on_category_id", using: :btree
+  add_index "tutorials", ["user_id"], name: "index_tutorials_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -47,4 +59,6 @@ ActiveRecord::Schema.define(version: 20160520004533) do
 
   add_foreign_key "categorizations", "categories"
   add_foreign_key "categorizations", "users"
+  add_foreign_key "tutorials", "categories"
+  add_foreign_key "tutorials", "users"
 end
