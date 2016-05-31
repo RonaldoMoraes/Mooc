@@ -2,7 +2,7 @@
   <%= link_to 'New', new_tutorial_path, class: "btn btn-default btn-lg", style: "width: 49.5%" %>
   <%= link_to 'My', my_tutorials_path, class: "btn btn-default btn-lg", style: "width: 49.5%" %>
 </div>
-<h1>Listing All</h1>
+<h1>Listing My</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -22,7 +22,6 @@
         <td><%= tutorial.user.name %></td>
         <td><%= tutorial.category.name %></td>
         <td><%= "99" %></td>
-        <!-- TIRAR isso daqui e colocar no MY TUTORIALS -->
         <td><%= link_to 'Show', tutorial %></td>
         <td><%= link_to 'Edit', edit_tutorial_path(tutorial) %></td>
         <td><%= link_to 'Destroy', tutorial, method: :delete, data: { confirm: 'Are you sure?' } %></td>

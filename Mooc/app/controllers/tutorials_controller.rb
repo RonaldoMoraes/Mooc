@@ -7,6 +7,10 @@ class TutorialsController < ApplicationController
     @tutorials = Tutorial.all
   end
 
+  def my
+    @tutorials = Tutorial.where(user_id: current_user.id)
+  end
+
   # GET /tutorials/1
   # GET /tutorials/1.json
   def show
