@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @step.name %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @step.body %>
+</p>
+
+<p>
+  <strong>Img url:</strong>
+  <%= @step.img_url %>
+</p>
+
+<p>
+  <strong>Pdf url:</strong>
+  <%= @step.pdf_url %>
+</p>
+
+<p>
+  <strong>Tutorial:</strong>
+  <%= @step.tutorial %>
+</p>
+
+<%= link_to 'Edit', edit_step_path(@step) %> |
+<%= link_to 'Back', steps_path %>

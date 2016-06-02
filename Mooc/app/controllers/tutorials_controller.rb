@@ -14,6 +14,10 @@ class TutorialsController < ApplicationController
   # GET /tutorials/1
   # GET /tutorials/1.json
   def show
+
+    # Like Step controller actions 'show' and 'new', respectively
+    @steps = @tutorial.steps
+    @step = Step.new(tutorial_id: @tutorial.id)
   end
 
   # GET /tutorials/new

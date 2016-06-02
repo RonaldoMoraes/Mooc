@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :steps
   get 'tutorials/my_tutorials' => "tutorials#my", as: 'my_tutorials'
   resources :tutorials
   resources :categories

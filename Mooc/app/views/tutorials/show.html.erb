@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Title:</strong>
@@ -19,6 +18,19 @@
   <strong>Description:</strong>
   <%= @tutorial.description %>
 </p>
+
+<hr>
+
+<% @steps.each do |step| %>
+	<p><b>Name: </b><%= step.name %></p><br>
+	<p><b>Text: </b><%= step.body %></p><br>
+	<p><b>PDF: </b><%= step.pdf_url %></p><br>
+	<p><b>Imagem: </b><%= step.img_url %></p><br><br>
+<% end %>
+
+<div>BOOTSTRAP TOGGLE THIS
+	<%= render "form_for_step" %>
+</div>
 
 <%= link_to 'Edit', edit_tutorial_path(@tutorial) %> |
 <%= link_to 'Back', tutorials_path %>

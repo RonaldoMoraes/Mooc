@@ -6,9 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create!(email: "admin@admin.admin", password: "admin123")
+User.create!(email: "admin@admin.admin", password: "admin123", name: "Ronaldo")
 
 Category.create!(name: "Game")
 Category.create!(name: "Ruby Language")
 Category.create!(name: "PHP Language")
 Category.create!(name: "Ruby on Rails Framework")
+
