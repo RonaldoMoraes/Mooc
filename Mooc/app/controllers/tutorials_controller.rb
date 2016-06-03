@@ -1,5 +1,5 @@
 class TutorialsController < ApplicationController
-  before_action :set_tutorial, only: [:show, :edit, :update, :destroy]
+  before_action :set_tutorial, only: [:show, :follow, :unfollow, :edit, :update, :destroy]
 
   # GET /tutorials
   # GET /tutorials.json
@@ -14,10 +14,40 @@ class TutorialsController < ApplicationController
   # GET /tutorials/1
   # GET /tutorials/1.json
   def show
-
+    @is_student = 0
     # Like Step controller actions 'show' and 'new', respectively
     @steps = @tutorial.steps
     @step = Step.new(tutorial_id: @tutorial.id)
+    @is_student = (@tutorial.students.map(&:user_id).include? current_user.id) ? true : false
+  end
+
+  def follow
+    respond_to do |format|
+      if !@tutorial.students.map(&:user_id).include? current_user.id
+        @student = @tutorial.students.build(:user => current_user)
+        if @student.save
+          format.html {redirect_to @tutorial, notice: 'Following Tutorial from now on!'} 
+        else
+          format.html {redirect_to @tutorial, alert: 'Not following yet, maybe a hotfix is needed here'}
+        end
+      else
+        format.html {redirect_to @tutorial, alert: 'You are already being following this Tutorial'}
+      end
+    end
+  end
+
+  def unfollow
+    respond_to do |format|
+      if @tutorial.students.map(&:user_id).include? current_user.id
+        if @tutorial.users.delete(current_user)
+          format.html {redirect_to @tutorial, notice: 'Not following this Tutorial anymore!'} 
+        else
+          format.html {redirect_to @tutorial, alert: 'Still following, maybe a hotfix is needed here'}
+        end
+      else
+        format.html {redirect_to @tutorial, alert: 'You are already not following this Tutorial, dude..'}
+      end
+    end
   end
 
   # GET /tutorials/new

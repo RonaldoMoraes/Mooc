@@ -1,3 +1,8 @@
+<% if @is_student == false %>
+  <a href="<%= follow_tutorial_path %>" class="btn btn-success btn-sm">Follow</a>
+<% elsif @is_student == true %>
+  <a href="<%= unfollow_tutorial_path %>" class="btn btn-danger btn-sm">Unollow</a>
+<% end %>
 
 <p>
   <strong>Title:</strong>

@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
   resources :steps
+
   get 'tutorials/my_tutorials' => "tutorials#my", as: 'my_tutorials'
+  get 'tutorials/follow_tutorial/:id' => "tutorials#follow", as: 'follow_tutorial'
+  get 'tutorials/unfollow_tutorial/:id' => "tutorials#unfollow", as: 'unfollow_tutorial'
   resources :tutorials
+
   resources :categories
   
   devise_for :users, controllers: { registrations: 'users/registrations' }
@@ -10,7 +14,6 @@ Rails.application.routes.draw do
     get 'users/edit_interest' => "users/registrations#edit_interest", as: 'edit_interest'
     put 'users/update_interest' => "users/registrations#update_interest", as: 'update_interest'
   end
-  #resources :users 
 
   get 'home/index'
   get 'home/about'

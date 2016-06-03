@@ -7,13 +7,13 @@
     <li>Interesses</li>
     <li>Tutoriais</li>
     <li>Documentos</li>
+    <li>Students following Tutorials</li>
 </ul>
 <br>
 <hr>
 <br>
 <h1>Undone</h1>
 <ul>
-    <li>Students following Tutorials</li>
     <li>Students names being shown in Tutorial page</li>
     <li>Likes</li>
     <li>Tutorials Listed By Preference in User Categories</li>
@@ -22,5 +22,6 @@
 </ul>
 
 <pre>
+tutorials has_many students       ---             tutorials has many users, through :students
     <%#= Categorization.where(user_id: current_user.id).inspect %>
 </pre>
