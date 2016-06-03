@@ -41,9 +41,10 @@ class StepsController < ApplicationController
   # PATCH/PUT /steps/1
   # PATCH/PUT /steps/1.json
   def update
+    @tutorial = Tutorial.find(@step.tutorial_id)
     respond_to do |format|
       if @step.update(step_params)
-        format.html { redirect_to @step, notice: 'Step was successfully updated.' }
+        format.html { redirect_to @tutorial, notice: 'Step was successfully updated.' }
         format.json { render :show, status: :ok, location: @step }
       else
         format.html { render :edit }

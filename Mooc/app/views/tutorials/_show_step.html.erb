@@ -4,4 +4,7 @@
 	<p><b>PDF: </b><%= step.pdf_url %></p><br>
   	<p><b>Video: </b><%= step.video_url %></p><br>
 	<p><b>Imagem: </b><%= step.img_url %></p><br><br>
+	<% if @tutorial.user_id == current_user.id%>
+		<%= link_to 'Edit Step', edit_step_path(step), class: 'btn btn-info btn-sm' %><br><br>
+	<% end %>
 <% end %>
