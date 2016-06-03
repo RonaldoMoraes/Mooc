@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160603183750) do
+ActiveRecord::Schema.define(version: 20160603192017) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name",        limit: 255
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160603183750) do
     t.integer  "tutorial_id", limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "video_url",   limit: 255
   end
 
   add_index "steps", ["tutorial_id"], name: "index_steps_on_tutorial_id", using: :btree

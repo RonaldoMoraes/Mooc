@@ -1,0 +1,7 @@
+<% @steps.each do |step| %>
+	<p><b>Name: </b><%= step.name %></p><br>
+	<p><b>Text: </b><%= step.body %></p><br>
+	<p><b>PDF: </b><%= step.pdf_url %></p><br>
+  	<p><b>Video: </b><%= step.video_url %></p><br>
+	<p><b>Imagem: </b><%= step.img_url %></p><br><br>
+<% end %>
