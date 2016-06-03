@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602233904) do
+ActiveRecord::Schema.define(version: 20160603183750) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name",        limit: 255
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 20160602233904) do
 
   add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id", using: :btree
   add_index "categorizations", ["user_id"], name: "index_categorizations_on_user_id", using: :btree
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id",     limit: 4
+    t.integer "tutorial_id", limit: 4
+  end
+
+  add_index "likes", ["tutorial_id"], name: "index_likes_on_tutorial_id", using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "steps", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -81,6 +89,8 @@ ActiveRecord::Schema.define(version: 20160602233904) do
 
   add_foreign_key "categorizations", "categories"
   add_foreign_key "categorizations", "users"
+  add_foreign_key "likes", "tutorials"
+  add_foreign_key "likes", "users"
   add_foreign_key "steps", "tutorials"
   add_foreign_key "students", "tutorials"
   add_foreign_key "students", "users"

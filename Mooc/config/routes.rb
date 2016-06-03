@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'tutorials/my_tutorials' => "tutorials#my", as: 'my_tutorials'
   get 'tutorials/follow_tutorial/:id' => "tutorials#follow", as: 'follow_tutorial'
   get 'tutorials/unfollow_tutorial/:id' => "tutorials#unfollow", as: 'unfollow_tutorial'
+  get 'tutorials/like_tutorial/:id' => "tutorials#like", as: 'like_tutorial'
+  get 'tutorials/unlike_tutorial/:id' => "tutorials#unlike", as: 'unlike_tutorial'
   resources :tutorials
 
   resources :categories

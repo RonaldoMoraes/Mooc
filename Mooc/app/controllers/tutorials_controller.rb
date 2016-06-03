@@ -1,5 +1,5 @@
 class TutorialsController < ApplicationController
-  before_action :set_tutorial, only: [:show, :follow, :unfollow, :edit, :update, :destroy]
+  before_action :set_tutorial, only: [:show, :follow, :unfollow, :like, :unlike, :edit, :update, :destroy]
 
   # GET /tutorials
   # GET /tutorials.json
@@ -19,6 +19,37 @@ class TutorialsController < ApplicationController
     @steps = @tutorial.steps
     @step = Step.new(tutorial_id: @tutorial.id)
     @is_student = (@tutorial.students.map(&:user_id).include? current_user.id) ? true : false
+    @user_like = (@tutorial.likes.map(&:user_id).include? current_user.id) ? true : false
+  end
+
+  def like
+    respond_to do |format|
+      if !@tutorial.likes.map(&:user_id).include? current_user.id
+        @user_like = @tutorial.likes.build(:user => current_user)
+        if @user_like.save
+          format.html {redirect_to @tutorial, notice: 'I know, this tutorial is really cool!!'} 
+        else
+          format.html {redirect_to @tutorial, alert: 'Something went wrong, maybe a hotfix is needed here'}
+        end
+      else
+        format.html {redirect_to @tutorial, alert: 'You already enjoy this Tutorial'}
+      end
+    end
+  end
+
+  def unlike
+    respond_to do |format|
+      if @tutorial.likes.map(&:user_id).include? current_user.id
+        ## Groupies -> See Tutorial.rb
+        if @tutorial.groupies.delete(current_user)
+          format.html {redirect_to @tutorial, notice: 'Not following this Tutorial anymore!'} 
+        else
+          format.html {redirect_to @tutorial, alert: 'Still following, maybe a hotfix is needed here'}
+        end
+      else
+        format.html {redirect_to @tutorial, alert: 'You are already not following this Tutorial, dude..'}
+      end
+    end
   end
 
   def follow
@@ -39,7 +70,7 @@ class TutorialsController < ApplicationController
   def unfollow
     respond_to do |format|
       if @tutorial.students.map(&:user_id).include? current_user.id
-        if @tutorial.users.delete(current_user)
+        if @tutorial.followers.delete(current_user)
           format.html {redirect_to @tutorial, notice: 'Not following this Tutorial anymore!'} 
         else
           format.html {redirect_to @tutorial, alert: 'Still following, maybe a hotfix is needed here'}

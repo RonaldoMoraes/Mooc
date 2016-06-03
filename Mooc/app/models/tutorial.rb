@@ -6,6 +6,10 @@ class Tutorial < ActiveRecord::Base
   has_many :steps
 
   has_many :students
-  has_many :users, through: :students
+  has_many :followers, through: :students, source: :user
+
+
+  has_many :likes
+  has_many :groupies, through: :likes, source: :user
 
 end
