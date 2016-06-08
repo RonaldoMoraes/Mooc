@@ -16,7 +16,6 @@
                         <a class="navbar-brand" href="/">
                             <span style="top:4px;margin-left:-20px;position: absolute;" class="glyphicon glyphicon-education"></span>
                         </a>
-
                         <li class="">
                             <a href="<%= root_url %>">Home</a>
                         </li>
@@ -30,7 +29,28 @@
                             <a href="<%= categories_path if user_signed_in? %>">Categories</a>
                         </li>
                     </ul>
+
+<ul class="nav navbar-nav">
+                    <div class="form-group">
+
+                        <%= form_tag(search_tutorial_path, :method => "get", id: "search-form", class: "navbar-form navbar-left", role: "search") do %>
+                            <div class="input-group">
+                                <%= text_field_tag :search, params[:search], placeholder: "Search Tutorials",:class=>"form-control" %>
+                                <span class="input-group-btn">
+                                <%= submit_tag "Search", class: "btn btn-info" do %>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                <% end %>
+                                </span>
+                            </div><!-- /input-group -->
+                        <% end %>
+                    </div>
+</ul>
+
+
+
                     <ul class="nav navbar-nav navbar-right">
+                    <li><%= render "layouts/search" %></li>
+                    
                         <li>
                             <a href="/home/about">About</a>
                         </li>

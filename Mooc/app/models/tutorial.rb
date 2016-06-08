@@ -12,4 +12,9 @@ class Tutorial < ActiveRecord::Base
   has_many :likes
   has_many :groupies, through: :likes, source: :user
 
+	def self.search(search)
+	  where("title LIKE ?", "%#{search}%") 
+	  where("description  LIKE ?", "%#{search}%")
+	end
+
 end

@@ -1,0 +1,23 @@
+<h1>Listing Tutorials containing "<%= params[:search] %>"</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Category</th>
+      <th>Followers</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tutorials.each do |tutorial| %>
+      <tr>
+        <td><%= tutorial.title %></td>
+        <td><%= tutorial.user.name %></td>
+        <td><%= tutorial.category.name %></td>
+        <td><%= "99" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

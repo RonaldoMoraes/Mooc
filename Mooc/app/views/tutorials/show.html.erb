@@ -10,6 +10,35 @@
   <a href="<%= unlike_tutorial_path %>" class="btn btn-danger btn-sm">Unlike</a>
 <% end %>
 
+<hr>
+<div style="">
+  <% @followers.each do|follower| %>
+    <div class="inside" style="">
+      <img src="<%= root_url %>images/person_icon.png" style="max-width:30px; max-height:30px; width: auto; height: auto;">
+      <%= follower.name %>
+    </div>
+
+    <div class="inside" style="">
+      <img src="<%= root_url %>images/person_icon.png" style="max-width:30px; max-height:30px; width: auto; height: auto;">
+      <%= follower.name %>
+    </div>
+
+    <div class="inside" style="">
+      <img src="<%= root_url %>images/person_icon.png" style="max-width:30px; max-height:30px; width: auto; height: auto;">
+      <%= follower.name %>
+    </div>
+
+    <div class="inside" style="">
+      <img src="<%= root_url %>images/person_icon.png" style="max-width:30px; max-height:30px; width: auto; height: auto;">
+      <%= follower.name %>
+    </div>
+
+  <% end %>
+</div>
+  <%#= @likes %>
+
+
+<hr>
 <p>
   <strong>Title:</strong>
   <%= @tutorial.title %>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :steps
-
+  get 'tutorials/search_tutorial' => "tutorials#search_tutorial", as: 'search_tutorial'
   get 'tutorials/my_tutorials' => "tutorials#my", as: 'my_tutorials'
   get 'tutorials/follow_tutorial/:id' => "tutorials#follow", as: 'follow_tutorial'
   get 'tutorials/unfollow_tutorial/:id' => "tutorials#unfollow", as: 'unfollow_tutorial'

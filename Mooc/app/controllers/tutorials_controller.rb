@@ -11,6 +11,15 @@ class TutorialsController < ApplicationController
     @tutorials = Tutorial.where(user_id: current_user.id)
   end
 
+  def search_tutorial
+    @tutorials = Tutorial.all
+    if params[:search]
+      @tutorials = Tutorial.search(params[:search]).order("created_at DESC")
+    else
+      @tutorials = Tutorial.all.order('created_at DESC')
+    end
+  end
+
   # GET /tutorials/1
   # GET /tutorials/1.json
   def show
@@ -18,8 +27,11 @@ class TutorialsController < ApplicationController
     # Like Step controller actions 'show' and 'new', respectively
     @steps = @tutorial.steps
     @step = Step.new(tutorial_id: @tutorial.id)
+
     @is_student = (@tutorial.students.map(&:user_id).include? current_user.id) ? true : false
     @user_like = (@tutorial.likes.map(&:user_id).include? current_user.id) ? true : false
+    @followers = @tutorial.followers
+    @likes = @tutorial.groupies.count
   end
 
   def like
