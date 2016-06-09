@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :categorizations
   has_many :categories, through: :categorizations
-   
+  has_many :tutorials, through: :categories
+
   has_many :students
   #has_many :tutorials, through: :students
 

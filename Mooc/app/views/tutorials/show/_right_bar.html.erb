@@ -1,0 +1,53 @@
+<div class="col-sm-4 col-md-4" style="float: right; ">
+
+    <div class="col-sm-12 col-md-12" style="background-color: #e8e8e8;border-radius: 10px;padding: 15px 10px; margin: 10px 0">
+      <div class="col-sm-12 col-md-12">
+          <h4 style="text-align: center;">
+            About this Tutorial
+          </h4>
+      </div>
+      <div class="col-sm-12 col-md-12">
+        <p>
+            <strong>Author:</strong>
+            <%= @tutorial.user.name %>
+        </p>
+        <p>
+          <strong>Category:</strong>
+          <%= @tutorial.category.name %>
+        </p>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-12" style="background-color: #e8e8e8;border-radius: 10px;padding: 15px 10px; margin: 10px 0">
+      <div class="col-sm-12 col-md-12">
+          <h4 style="text-align: center;">
+            People who Like (<%= @likes.count %>)
+          </h4>
+      </div>
+      <div class="col-sm-12 col-md-12">
+        <% @likes[0..8].each do|groupie| %>
+
+          <div class="col-sm-3 col-md-3" style="padding: 5px;">
+            <img src="<%= root_url %>images/person_icon.png" style="max-width:50px; max-height:50px; width: auto; height: auto;" class="img-thumbnail">
+            <%= groupie.name %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-12" style="background-color: #e8e8e8;border-radius: 10px;padding: 15px 10px; margin: 10px 0">
+      <div class="col-sm-12 col-md-12">
+        <h4 style="text-align: center;">Students List (<%= @followers.count %>)</h4>
+      </div>
+      <div class="col-sm-12 col-md-12">
+        <% @followers[0..8].each do|follower| %>
+
+          <div class="col-sm-3 col-md-3" style="padding: 5px;">
+            <img src="<%= root_url %>images/person_icon.png" style="max-width:50px; max-height:50px; width: auto; height: auto;" class="img-thumbnail">
+            <%= follower.name %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>

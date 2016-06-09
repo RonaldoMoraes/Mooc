@@ -13,10 +13,10 @@
   <tbody>
     <% @tutorials.each do |tutorial| %>
       <tr>
-        <td><%= tutorial.title %></td>
+        <td><%= link_to tutorial.title, tutorial_path(tutorial) %></td>
         <td><%= tutorial.user.name %></td>
         <td><%= tutorial.category.name %></td>
-        <td><%= "99" %></td>
+        <td><%= tutorial.followers.count %></td>
       </tr>
     <% end %>
   </tbody>

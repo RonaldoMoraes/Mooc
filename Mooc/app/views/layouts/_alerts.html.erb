@@ -1,4 +1,6 @@
-<% if notice %>
+<% if notice && (notice == 'I don\'t like this Tutorial anymore!' || notice == 'Not following this Tutorial anymore!')%>
+    <p class="alert alert-warning"><%= notice %></p>
+<% elsif notice %>
     <p class="alert alert-success"><%= notice %></p>
 <% elsif alert %>
     <p class="alert alert-danger"><%= alert %></p>

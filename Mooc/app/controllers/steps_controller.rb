@@ -56,9 +56,10 @@ class StepsController < ApplicationController
   # DELETE /steps/1
   # DELETE /steps/1.json
   def destroy
+    @tutorial = Tutorial.find(@step.tutorial_id)
     @step.destroy
     respond_to do |format|
-      format.html { redirect_to steps_url, notice: 'Step was successfully destroyed.' }
+      format.html { redirect_to @tutorial, notice: 'Step was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

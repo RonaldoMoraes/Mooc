@@ -1,73 +1,18 @@
-<% if @is_student == false %>
-  <a href="<%= follow_tutorial_path %>" class="btn btn-success btn-sm">Follow</a>
-<% elsif @is_student == true %>
-  <a href="<%= unfollow_tutorial_path %>" class="btn btn-danger btn-sm">Unollow</a>
-<% end %>
-
-<% if @user_like != true %>
-  <a href="<%= like_tutorial_path %>" class="btn btn-success btn-sm">Like</a>
-<% else %>
-  <a href="<%= unlike_tutorial_path %>" class="btn btn-danger btn-sm">Unlike</a>
-<% end %>
-
-<hr>
-<div style="">
-  <% @followers.each do|follower| %>
-    <div class="inside" style="">
-      <img src="<%= root_url %>images/person_icon.png" style="max-width:30px; max-height:30px; width: auto; height: auto;">
-      <%= follower.name %>
-    </div>
-
-    <div class="inside" style="">
-      <img src="<%= root_url %>images/person_icon.png" style="max-width:30px; max-height:30px; width: auto; height: auto;">
-      <%= follower.name %>
-    </div>
-
-    <div class="inside" style="">
-      <img src="<%= root_url %>images/person_icon.png" style="max-width:30px; max-height:30px; width: auto; height: auto;">
-      <%= follower.name %>
-    </div>
-
-    <div class="inside" style="">
-      <img src="<%= root_url %>images/person_icon.png" style="max-width:30px; max-height:30px; width: auto; height: auto;">
-      <%= follower.name %>
-    </div>
-
-  <% end %>
+<div style="text-align: center;">
+	<%= render "tutorials/show/like_and_follow" %>
 </div>
-  <%#= @likes %>
-
-
-<hr>
-<p>
-  <strong>Title:</strong>
-  <%= @tutorial.title %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @tutorial.user %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @tutorial.category %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @tutorial.description %>
-</p>
-
 <hr>
 
-<div>BOOTSTRAP THIS
-  <%= render "show_step" %>
-</div>
+<div class="col-sm-12 col-md-12">
 
-<div>BOOTSTRAP TOGGLE THIS
-	<%= render "form_for_step" %>
-</div>
+  <%= render "tutorials/show/right_bar"%>
 
-<%= link_to 'Edit', edit_tutorial_path(@tutorial) %> |
-<%= link_to 'Back', tutorials_path %>
+  <%= render "tutorials/show/left_bar"%>
+
+</div>
+<hr>
+<div style="text-align: center;">
+	<%= render "tutorials/show/like_and_follow" %>
+</div>
+<hr>
+

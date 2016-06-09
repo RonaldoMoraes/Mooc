@@ -1,6 +1,6 @@
 <div class="" style="margin: 20px 0">
-  <%= link_to 'New', new_tutorial_path, class: "btn btn-default", style: "width: 49.5%" %>
-  <%= link_to 'All', tutorials_path, class: "btn btn-default", style: "width: 49.5%" %>
+  <%= link_to 'New', new_tutorial_path, class: "btn btn-default", style: "width: 49.1111%" %>
+  <%= link_to 'All', tutorials_path, class: "btn btn-default", style: "width: 49.1111%" %>
 </div>
 <h1>Listing My</h1>
 
@@ -8,23 +8,20 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Author</th>
       <th>Category</th>
       <th>Followers</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @tutorials.each do |tutorial| %>
       <tr>
-        <td><%= tutorial.title %></td>
-        <td><%= tutorial.user.name %></td>
+        <td><%= link_to tutorial.title, tutorial_path(tutorial) %></td>
         <td><%= tutorial.category.name %></td>
-        <td><%= "99" %></td>
-        <td><%= link_to 'Show', tutorial %></td>
-        <td><%= link_to 'Edit', edit_tutorial_path(tutorial) %></td>
-        <td><%= link_to 'Destroy', tutorial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= tutorial.followers.count %></td>
+        <td ><%= link_to 'Edit', edit_tutorial_path(tutorial), class: "btn-info btn-sm" %></td>
+        <td ><%= link_to 'Destroy', tutorial, method: :delete, data: { confirm: 'Are you sure?' }, class: " btn-sm btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

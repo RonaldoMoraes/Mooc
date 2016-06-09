@@ -4,7 +4,7 @@ class TutorialsController < ApplicationController
   # GET /tutorials
   # GET /tutorials.json
   def index
-    @tutorials = Tutorial.all
+    @tutorials = current_user.tutorials
   end
 
   def my
@@ -31,7 +31,7 @@ class TutorialsController < ApplicationController
     @is_student = (@tutorial.students.map(&:user_id).include? current_user.id) ? true : false
     @user_like = (@tutorial.likes.map(&:user_id).include? current_user.id) ? true : false
     @followers = @tutorial.followers
-    @likes = @tutorial.groupies.count
+    @likes = @tutorial.groupies
   end
 
   def like
@@ -54,7 +54,7 @@ class TutorialsController < ApplicationController
       if @tutorial.likes.map(&:user_id).include? current_user.id
         ## Groupies -> See Tutorial.rb
         if @tutorial.groupies.delete(current_user)
-          format.html {redirect_to @tutorial, notice: 'Not following this Tutorial anymore!'} 
+          format.html {redirect_to @tutorial, notice: 'I don\'t like this Tutorial anymore!'} 
         else
           format.html {redirect_to @tutorial, alert: 'Still following, maybe a hotfix is needed here'}
         end

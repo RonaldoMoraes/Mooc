@@ -1,0 +1,19 @@
+<% if @is_student == false %>
+  <a href="<%= follow_tutorial_path %>" class="btn btn-default btn-sm" style="border-radius: 100px">
+  <img src="<%= root_url %>images/follow.png" style="max-width:85px; max-height:85px; width: auto; height: auto; border-radius: 20px" class="" title="">
+  </a>
+<% elsif @is_student == true %>
+  <a href="<%= unfollow_tutorial_path %>" class="btn btn-success btn-sm" style="border-radius: 100px">
+    <img src="<%= root_url %>images/follow.png" style="max-width:85px; max-height:85px; width: auto; height: auto; border-radius: 20px" class="" title="">
+  </a>
+<% end %>
+
+<% if @user_like != true %>
+  <a href="<%= like_tutorial_path %>" class="btn btn-default btn-sm" style="border-radius: 100px">
+    <img src="<%= root_url %>images/hangloose.png" style="max-width:50px; max-height:50px; width: auto; height: auto;" class="img-circle" title="I LIKE IT! ;)">
+  </a>
+<% else %>
+  <a href="<%= unlike_tutorial_path %>" class="btn btn-success btn-sm" style="border-radius: 100px">
+  <img src="<%= root_url %>images/hangloose.png" style="max-width:50px; max-height:50px; width: auto; height: auto;" class="img-circle" title="Don't like it ?=(">
+  </a>
+<% end %>

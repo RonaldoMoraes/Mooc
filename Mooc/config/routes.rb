@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :steps
+  get 'home/shuffle_tutorial' => "home#shuffle_tutorial", as: 'shuffle_tutorial'
   get 'tutorials/search_tutorial' => "tutorials#search_tutorial", as: 'search_tutorial'
   get 'tutorials/my_tutorials' => "tutorials#my", as: 'my_tutorials'
   get 'tutorials/follow_tutorial/:id' => "tutorials#follow", as: 'follow_tutorial'

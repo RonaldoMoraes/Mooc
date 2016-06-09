@@ -1,5 +1,5 @@
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle collapsed" aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button">
@@ -17,7 +17,7 @@
                             <span style="top:4px;margin-left:-20px;position: absolute;" class="glyphicon glyphicon-education"></span>
                         </a>
                         <li class="">
-                            <a href="<%= root_url %>">Home</a>
+                            <a href="<%= shuffle_tutorial_path %>">Go Shuffle!</a>
                         </li>
                         <li class="">
                             <%= link_to 'My Interests', edit_interest_path %>
@@ -35,11 +35,9 @@
 
                         <%= form_tag(search_tutorial_path, :method => "get", id: "search-form", class: "navbar-form navbar-left", role: "search") do %>
                             <div class="input-group">
-                                <%= text_field_tag :search, params[:search], placeholder: "Search Tutorials",:class=>"form-control" %>
+                                <%= text_field_tag :search, params[:search], placeholder: "Search Tutorials",:class=>"form-control", style: "height: 27px; margin: 3px;" %>
                                 <span class="input-group-btn">
-                                <%= submit_tag "Search", class: "btn btn-info" do %>
-                                    <span class="glyphicon glyphicon-search"></span>
-                                <% end %>
+                                    <button type="submit" class="btn btn-info" style="height: 27px; margin: 3px"><span class="glyphicon glyphicon-search"></span></button>
                                 </span>
                             </div><!-- /input-group -->
                         <% end %>
@@ -67,4 +65,3 @@
                 </div>
             </div>
         </nav>
-        <p></p>

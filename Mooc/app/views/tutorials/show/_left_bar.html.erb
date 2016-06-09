@@ -1,0 +1,28 @@
+<div class="col-sm-8 col-md-8" style="float: left; word-wrap: break-word;">
+
+    <p><h3 style="text-align: center"><%= @tutorial.title %></h3></p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @tutorial.description %>
+    </p>
+
+    <hr>
+    
+    <div>
+      <%= render "tutorials/show/show_step" %>
+    </div>
+
+    <hr>
+    <% if @tutorial.user_id == current_user.id%>
+      <p><h4 style="text-align: center">Create a new Step:</h4></p>
+
+      <div>
+      	<%= render "tutorials/show/form_for_step" %>
+      </div>
+    <% end %>
+
+	<%#= link_to 'Edit', edit_tutorial_path(@tutorial) %> 
+	<%#= link_to 'Back', tutorials_path %>
+
+  </div>

@@ -1,10 +1,16 @@
-<div class="" style="margin: 20px 0">
-  <%= link_to 'All', tutorials_path, class: "btn btn-default", style: "width: 49.5%" %>
-  <%= link_to 'My', my_tutorials_path, class: "btn btn-default", style: "width: 49.5%" %>
+<div style="margin: 0 auto;">
+	<div class="" style="margin: 20px 0">
+	  <%= link_to 'All', tutorials_path, class: "btn btn-default", style: "width: 49.1111%" %>
+	  <%= link_to 'My', my_tutorials_path, class: "btn btn-default", style: "width: 49.1111%" %>
+	</div>
 </div>
 
-<h1>New Tutorial</h1>
 
-<%= render 'form' %>
+<div style="margin: 0 auto; width: 50%; ">
+	<div style="text-align: center;">
+		<h1>New Tutorial</h1>
+		<%= render 'form' %>
+	</div>
+</div>
 
-<%= link_to 'Back', tutorials_path %>
+<%#= link_to 'Back', tutorials_path %>

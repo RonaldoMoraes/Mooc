@@ -1,0 +1,26 @@
+<% @steps.each do |step| %>
+	<% if @step.name != '' %>
+		<h4 style="text-align: center"><%= step.name %></h4><br>
+	<% end %>
+
+	<% if @step.body != '' %>
+		<%= step.body %><br><br>
+	<% end %>
+
+	<% if @step.pdf_url != '' %>
+		<p><b>Material em PDF: </b></p><br>
+	<% end %>
+
+	<% if @step.video_url != '' %>
+		<div class="thumbnail">
+			<div class="embed-responsive embed-responsive-16by9">
+			  <iframe class="embed-responsive-item" src="<%= step.video_url %>"></iframe>
+			</div>  	
+		</div>	
+  	<% end %>
+
+	<% if @tutorial.user_id == current_user.id%>
+		<%= link_to 'Edit Step', edit_step_path(step), class: 'btn btn-info btn-sm' %>
+		<%= link_to 'Destroy Step', step, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %><br><br>
+	<% end %>
+<% end %>
