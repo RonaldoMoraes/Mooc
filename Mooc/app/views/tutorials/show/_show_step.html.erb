@@ -7,9 +7,14 @@
 		<%= step.body %><br><br>
 	<% end %>
 
-	<% if @step.pdf_url != '' %>
-		<p><b>Material em PDF: </b></p><br>
+	<% if @step.pdf_url || @step.pdf_url != '' %>
+		<p>
+			<b>Material em PDF: </b>
+			<a href="<%= step.pdf_url %>"><%= step.pdf_url %></a>
+		</p>
+		<br>
 	<% end %>
+
 
 	<% if @step.video_url != '' %>
 		<div class="thumbnail">

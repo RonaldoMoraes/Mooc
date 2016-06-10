@@ -9,7 +9,7 @@
 User.create!(email: "admin@admin.admin", password: "admin123", name: "Ronaldo")
 
 Category.create!(name: "Game")
-Category.create!(name: "Ruby Language")
-Category.create!(name: "PHP Language")
-Category.create!(name: "Ruby on Rails Framework")
+Category.create!(name: "Ruby")
+Category.create!(name: "PHP")
+Category.create!(name: "Ruby on Rails")
 
