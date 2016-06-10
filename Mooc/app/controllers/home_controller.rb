@@ -3,11 +3,9 @@ class HomeController < ApplicationController
 	
 	def index
 	end
-	
+
 	def shuffle_tutorial
-		tutorials_ids = Tutorial.all.map(&:id)
-		@tutorial = Tutorial.find(tutorials_ids.sample)
-		#puts @tutorial
+		@tutorial = Tutorial.all.sample
 	end
 
 	def about

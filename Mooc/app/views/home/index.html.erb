@@ -1,26 +1,129 @@
-<h1>Done</h1>
-<ul>
-    <li>Bootstrap (Layout Responsivo)</li>
-    <li>Usuário</li>
-    <li>Login para Usuários</li>
-    <li>Categorias</li>
-    <li>Interesses</li>
-    <li>Tutoriais</li>
-    <li>Documentos</li>
-    <li>Students Following Tutorials</li>
-    <li>User Like Tutorial</li>
-    <li>Search for tutorials with keyword in title or description</li>
-    <li>Tutorials Listed By Preference in User Categories</li>
-    <li>Students names being shown in Tutorial page</li>
-</ul>
-<br>
-<hr>
-<br>
-<h1>Undone</h1>
-<ul>
-    <li>Chat</li>
-</ul>
+<div>
+  <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#alpha" aria-controls="alpha" role="tab" data-toggle="tab">Alpha</a></li>
+        <li role="presentation" class="active"><a href="#beta" aria-controls="beta" role="tab" data-toggle="tab">Beta</a></li>
+        <li role="presentation"><a href="#deploy" aria-controls="deploy" role="tab" data-toggle="tab">Deploy</a></li>
 
-<pre>
-    <%#= Categorization.where(user_id: current_user.id).inspect %>
-</pre>
+    </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane" id="home">
+        <h2>Project Infos</h2>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="alpha">
+        <h2>What was done in Alpha</h2>
+        <ul>
+            <li>Bootstrap (Responsive Layout)</li>
+            <li>User with Devise</li>
+            <li>Category for Tutorial, and for User Interests (Categorization)</li>
+            <li>User has many Interests (Categorization)</li>
+            <li>Tutorials</li>
+            <li>Steps</li>
+            <li>A Tutorial has many Steps</li>
+            <li>Users follow Tutorials as Students, so, Tutorial has many Students</li>
+            <li>Users like Tutorials as Groupies, so, Tutorial has many Groupies</li>
+            <li>Search for tutorials with keyword in title or description</li>
+            <li>Tutorials listed only by preference in user categorization</li>
+            <li>Students and Groupies being shown in Tutorial page</li>
+            <li>'Go Shuffle!' Pick a random Tutorial ready to be learned!</li>
+        </ul>
+    </div>
+
+    <div role="tabpanel" class="tab-pane active" id="beta">
+        <h2>What is expected for Beta</h2>
+        <ul>
+            <li>
+                Validate all entries, in database and in formularies
+            </li>
+            <br>
+            <li>
+                Steps are not good to go. *Must it be changed?
+            </li>
+            <br>
+            <li>
+                Tutorials
+                <ul>
+                    <li>May be ordered by name, category or by number of Likes or Students(Followers)</li>
+                    <li>May have references (video, images, texts, and others)</li>
+                    <li>
+                        -May be connected to each other.<br>
+                        -WHAT?<br>
+                        -Calm down, boy/girl, just listen:<br>
+                        <ul>
+                            <li>
+                                The idea here is stablish a cronological order between some Tutorials (this is only a option, not a need), see the example below:
+                            </li>
+                            <li>
+                                The Tutorial <b>"How to build a blog with Rails"</b> will have as base, the Tutorial <b>"How to use User with Devise"</b>. So, when some User finish the Devise's Tutorial, will be shown to him, all other Tutorials that he may have the 'skills' to do, by finishing this one first!<br>
+                                In a different way, if a User that had not did the first Tutorial yet, start doing/reading the <b>"How to build a blog with Rails"</b> Tutorial, he will be warned that he may need to have done the first Tutorial (<b>"How to use User with Devise"</b>) to understand this one.
+                            </li>
+                            <li>
+                                When the User finish the Steps of a Tutorial, he can mark "Finished this!"
+                            </li>
+                            <li>
+                                Marking "Finished this!", the User can answer a form for feedback, he can also rate the Tutorial, and point it good and bad aspects.<br>
+                                *How this feedback answer will be displayed is missing*<br>
+                                Marking this, the options for future Tutorials to be learned will be shown in the screen.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <br>
+            <li>
+                Implement RealTime ChatMessages
+                <ul>
+                    <li>An User has many Messages</li>
+                    <li>A Message belongs to one User, and to one Tutorial</li>
+                    <li>A Tutorial has many Messages</li>
+                    <li>Only Students of this Tutorial can chat</li>
+                    <li>Give it a try *<a href="http://bamboolab.eu/blog/implement-a-chat-app-in-rails-4">Bamboo-Lab-Implementation</a>* </li>
+                </ul>
+            </li>
+            <br>
+            <li>
+                Implement Comments and Answers/Reply (like facebook)
+                <ul>
+                    <li>An User has many Comments</li>
+                    <li>A Comment belongs to one User, and to one Tutorial</li>
+                    <li>A Tutorial has many Comments</li>
+                    <li>Anyone can comment the Tutorial</li>
+                    <li>The Answers must be refered to one specific Comment (just like facebook)</li>
+                </ul>
+            </li>
+            <br>
+            <li>
+                Implement Notifications
+                <ul>
+                    <li>
+                        The author of Tutorial gets notified if someone gave a like, or is following now, or if somebody make a comment
+                    </li>
+                     <li>
+                         The User is notified when somebody reply his Comment
+                     </li>
+                    <li>
+                        Followers of some tutorial may be notified if something was changed, or if some new Step was included, or something like this..
+                        <br>
+                        *It seems that is missing something here, maybe Following the tutorial is not that interesting*
+                    </li>
+                </ul>
+            </li>
+            <br>
+        </ul>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="deploy">
+        <h2>What is expected for project's deploy</h2>
+        <ul>
+            <li>Docker</li>
+            <li>Heroku?</li>
+            <li>Postgres</li>
+            <li>?</li>
+        </ul>
+    </div>
+  </div>
+
+</div>
